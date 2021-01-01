@@ -1,0 +1,44 @@
+@include scut-reset;
+
+// Sets value for `rem`
+html {
+    font-size: 14px;
+}
+
+// So that `height: 100%;` will work
+// https://stackoverflow.com/a/1122415
+html,
+body {
+    height: 100%;
+}
+
+// So that outlines don't have that unsightly overhang outside of element
+* {
+    outline-offset: -3px;
+    outline-width: 3px;
+}
+
+// see https://gomakethings.com/smooth-scrolling-links-with-only-css/
+html {
+    scroll-behavior: smooth;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+// Removes box shadow on iOS
+// see: https://www.abeautifulsite.net/how-to-remove-box-shadows-from-input-controls-on-ios
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+    -webkit-appearance: none;
+}
+
+// eliminates white-space under `img`
+// see: https://stackoverflow.com/a/14720811
+img {
+    vertical-align: bottom;
+}

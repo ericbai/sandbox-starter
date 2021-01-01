@@ -1,0 +1,25 @@
+{
+    "name": "starter",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build:sass": "npx node-sass --include-path node_modules --output build src",
+        "build:js": "npx webpack --mode=production",
+        "watch:sass": "npx concurrently \"npm:build:sass\" \"npm:build:sass -- --watch --recursive\"",
+        "watch:js": "npx webpack serve --mode=development",
+        "build": "npx concurrently -n w: npm:build:*",
+        "start": "npx concurrently -n w: npm:watch:*"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "babel-loader": "^8.2.2",
+        "concurrently": "^5.0.2",
+        "node-sass": "^4.13.0",
+        "scut": "^1.4.0",
+        "url-loader": "^3.0.0",
+        "webpack": "^5.11.1",
+        "webpack-cli": "^4.3.1",
+        "webpack-dev-server": "^3.11.1"
+    }
+}
