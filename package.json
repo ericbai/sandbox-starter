@@ -20,6 +20,7 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.2",
     "normalize.css": "^8.0.1",
+    "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.49.0",
