@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "license": "Apache-2.0",
   "scripts": {
-    "setup": "yarn && ./config/setup-gh-pages.sh",
+    "setup:branch": "./config/setup-gh-pages-branch.sh",
+    "setup:worktree": "./config/setup-worktree.sh",
+    "setup": "yarn && yarn setup:branch && yarn setup:worktree",
     "start": "npx webpack serve --mode development",
-    "deploy": "./config/deploy-gh-pages.sh"
+    "deploy:build": "npx webpack --mode production",
+    "deploy:commit": "./config/deploy-gh-pages.sh",
+    "deploy": "yarn deploy:build && yarn deploy:commit"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
