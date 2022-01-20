@@ -1,14 +1,24 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <%- include partials/head.ejs %>
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <h1>Welcome! Add your markup here!</h1>
         <p>See <a href="https://ejs.co/" target="_blank" rel="noopener noreferrer">the EJS guides</a> for more information.</p>
+
+        <hr>
+
+        <h2>Requiring assets in markup</h2>
+        <img src="<%= require('assets/images/this-is-fine.jpg') %>"
+            alt="This is fine"
+            style="height: 5rem; width: 5rem;">
+
+        <hr>
+
+        <h2>Requiring assets in stylesheet</h2>
+        <div class="test-background"></div>
     </body>
 </html>

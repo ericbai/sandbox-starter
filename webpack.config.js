@@ -4,8 +4,10 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// Customize behavior based on mode
-const MODE_DEV = process.env.NODE_ENV !== 'production';
+// Customize behavior based on mode in Webpack 5, `process.env.NODE_ENV` is for Webpack <= 3
+// Must use `--mode <env>` NOT `--mode=<env>`
+// see https://stackoverflow.com/a/54482904
+const MODE_DEV = process.argv[process.argv.indexOf('--mode') + 1] !== 'production';
 
 // Automatically build the first
 // see https://stackoverflow.com/a/67928998
@@ -60,6 +62,7 @@ module.exports = {
   },
   module: {
     rules: [
+      // for transpilation via Babel
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -70,6 +73,7 @@ module.exports = {
           },
         },
       },
+      // handling SCSS files
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -79,22 +83,23 @@ module.exports = {
           { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
+      // handles EJS files
+      {
+        test: /\.ejs$/,
+        exclude: /node_modules/,
+        use: ['ejs-compiled-loader'],
+      },
+      // Webpack v5 deprecated `file-loader` and `url-loader` in favor of asset modules
+      // see https://webpack.js.org/guides/asset-modules/
       {
         test: /\.(ttf|woff|woff2|eot|otf)$/i,
-        use: 'file-loader',
+        exclude: /node_modules/,
+        type: 'asset/resource',
       },
       {
         test: /\.(png|jpg|svg)$/,
         exclude: /node_modules/,
-        use: ['url-loader'],
-      },
-      // So that automatic image-requiring of `html-loader` can co-exist with
-      // the html pre-processing of `html-webpack-plugin`
-      // see: https://github.com/webpack-contrib/html-loader/issues/195#issuecomment-461315765
-      {
-        test: /\.ejs$/,
-        exclude: /node_modules/,
-        use: ['extract-loader', 'html-loader', 'ejs-compiled-loader'],
+        type: 'asset',
       },
     ],
   },

@@ -14,7 +14,8 @@ Run `yarn start`
 
 ### Tips
 - All top-level `.ejs` files within the `src/ejs` will have `HTMLWebpackPlugin`s automatically added within `webpack.config.js`. Files nested within subdirectories will need to be manually added to the Webpack config 
-- By default, all pages will have the `main` chunk added (see the keys within the `entry` key in `webpack.config.js`). See `src/main.js` to see all the JS and SCSS files imported into this chunk. 
+- By default, all `.ejs` pages will have the `main` chunk added (see the keys within the `entry` key in `webpack.config.js`). See `src/main.js` to see all the JS and SCSS files imported into this chunk. 
+- You need to restart the development server every time an `.ejs` page is added or removed as the entire Webpack config needs to change
 
 ## Deployment
 
