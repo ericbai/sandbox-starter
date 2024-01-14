@@ -1,8 +1,13 @@
 // Dependencies
+// ------------
+
 const fs = require('fs');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// Webpack config
+// --------------
 
 // Customize behavior based on mode in Webpack 5, `process.env.NODE_ENV` is for Webpack <= 3
 // Must use `--mode <env>` NOT `--mode=<env>`
@@ -23,6 +28,8 @@ const htmlPagePlugins = fs
       new HTMLWebpackPlugin({
         template: path.resolve(DIRECTORY_EJS, ejsName),
         filename: `${ejsName.slice(0, -4)}.html`,
+        // TIP: any additional keys placed will be available in the templates in the
+        // `htmlWebpackPlugin.options` global variable
       }),
   );
 

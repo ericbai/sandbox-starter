@@ -5,11 +5,11 @@
   "scripts": {
     "setup:branch": "./config/setup-gh-pages-branch.sh",
     "setup:worktree": "./config/setup-worktree.sh",
-    "setup": "yarn && yarn setup:branch && yarn setup:worktree",
+    "setup": "npm install && npm run setup:branch && npm run setup:worktree",
     "start": "npx webpack serve --mode development",
     "deploy:build": "npx webpack --mode production",
     "deploy:commit": "./config/deploy-gh-pages.sh",
-    "deploy": "yarn deploy:build && yarn deploy:commit"
+    "deploy": "npm run deploy:build && npm run deploy:commit"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
