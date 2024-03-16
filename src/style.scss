@@ -1,4 +1,3 @@
-
 // Third party libraries
 // ---------------------
 
@@ -12,9 +11,9 @@
 @import '~src/scss/overrides';
 
 .test-background {
-    height: $baseunit * 5;
-    width: $baseunit * 5;
     background-image: url('~assets/images/this-is-fine.jpg');
-    background-repeat: no-repeat;
     background-size: contain;
+    background-repeat: no-repeat;
+    width: $baseunit * 5;
+    height: $baseunit * 5;
 }

@@ -26,6 +26,7 @@ const htmlPagePlugins = fs
       // see https://github.com/jantimon/html-webpack-plugin#options
       // default `inject: true` so will automatically inject script/style tags into EJS template
       new HTMLWebpackPlugin({
+        favicon: path.resolve(process.cwd(), 'assets', 'images', 'favicon.ico'), // see https://stackoverflow.com/a/52327687
         template: path.resolve(DIRECTORY_EJS, ejsName),
         filename: `${ejsName.slice(0, -4)}.html`,
         // TIP: any additional keys placed will be available in the templates in the

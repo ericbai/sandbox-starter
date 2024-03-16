@@ -14,8 +14,8 @@ body {
 
 // So that outlines don't have that unsightly overhang outside of element
 * {
-    outline-offset: -3px;
     outline-width: 3px;
+    outline-offset: -3px;
 }
 
 // see https://gomakethings.com/smooth-scrolling-links-with-only-css/
